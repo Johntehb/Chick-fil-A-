@@ -1,0 +1,133 @@
+{
+  "name": "chickfila-site",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "14.2.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.0.0",
+    "postcss": "^8.0.0",
+    "tailwindcss": "^3.0.0"
+  }
+}import "./globals.css";
+
+export const metadata = {
+  title: "Chick-fil-A Style Website",
+  description: "High-converting restaurant website"
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  );
+}export default function Home() {
+  const items = [
+    {
+      name: "Classic Chicken Sandwich",
+      desc: "Crispy, juicy and freshly prepared.",
+      price: "$8.99"
+    },
+    {
+      name: "Spicy Deluxe",
+      desc: "Bold flavor with premium toppings.",
+      price: "$10.49"
+    },
+    {
+      name: "Chicken Nuggets",
+      desc: "Perfectly seasoned bite-sized goodness.",
+      price: "$7.99"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-white text-gray-900">
+
+      {/* HERO */}
+      <section className="bg-red-50 text-center py-24 px-6">
+        <h1 className="text-5xl font-bold mb-4">
+          Fresh Chicken. Fast Service.
+        </h1>
+        <p className="text-gray-600 mb-6">
+          Order your favorite meals in minutes.
+        </p>
+        <button className="bg-red-600 text-white px-6 py-3 rounded-xl">
+          Order Now
+        </button>
+      </section>
+
+      {/* MENU */}
+      <section className="py-16 px-6">
+        <h2 className="text-3xl font-bold text-center mb-10">
+          Featured Menu
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {items.map((item, i) => (
+            <div key={i} className="border rounded-xl p-6 shadow">
+              <h3 className="font-bold text-xl">{item.name}</h3>
+              <p className="text-gray-600">{item.desc}</p>
+              <p className="text-red-600 font-bold mt-2">{item.price}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-black text-white text-center py-20">
+        <h2 className="text-4xl font-bold mb-4">
+          Ready to Order?
+        </h2>
+        <button className="bg-red-600 px-8 py-4 rounded-xl">
+          Start Now
+        </button>
+      </section>
+
+    </div>@tailwind base;
+@tailwind components;
+@tailwind utilities;
+  );
+}/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx}"
+  ],
+  theme: {
+    extend: {}
+  },
+  plugins: []
+};module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {}
+  }
+}module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {}
+  }
+};# Chick-fil-A Style Website
+
+A high-converting restaurant landing page built with Next.js and Tailwind CSS.
+
+## Features
+- Modern UI design
+- Mobile responsive layout
+- High conversion structure
+- Fast loading performance
+
+## Run locally
+npm install
+npm run dev
+
+## Deploy
+Push to GitHub and connect to Vercel
